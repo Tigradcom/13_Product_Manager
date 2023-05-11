@@ -1,17 +1,18 @@
-public class ProductManager {
-    private Storage repositories ;
+public class ProductManager extends Storage {
+    private Storage repository;
 
-    public ProductManager(Storage repositories) {
-        this.repositories = repositories;
+    public ProductManager(Storage repository) {
+
+        this.repository = repository;
     }
 
-    public static void add(Product product) {
-        Storage.add(product);
+    public void add(Product product) {
+        repository.add(product);
     }
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
-        for (Product product: repositories.findAll()) {
+        for (Product product: repository.findAll()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length+1];
                 for (int i =0; i < result.length; i++) {
@@ -32,5 +33,6 @@ public class ProductManager {
             return false;
         }
     }
+
 }
 

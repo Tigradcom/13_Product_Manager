@@ -6,9 +6,5 @@ public class Smartphone extends Product{
         this.brand = brand;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
 
 }
