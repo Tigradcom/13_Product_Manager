@@ -1,6 +1,7 @@
 public class Storage {
     private Product[] products = new Product[0];
-    public void add (Product product) {
+
+    public void add(Product product) {
         Product[] tmp = new Product[products.length + 1];
         for (int i = 0; i < products.length; i++) {
             tmp[i] = products[i];

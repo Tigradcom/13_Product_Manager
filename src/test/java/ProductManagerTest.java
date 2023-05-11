@@ -1,22 +1,23 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class ProductManagerTest {
 
     protected Storage stor = new Storage();
-    protected ProductManager repository  = new ProductManager(stor);
+    protected ProductManager repository = new ProductManager(stor);
     protected Product book1 = new Book(1, "Fahrenheit 451", 500, "Ray Douglas Bradbury");
     protected Product book2 = new Book(2, "The Stainless Steel Rat", 375, "Harry Harrison");
-    protected Product book3 = new Book(56,"Le Comte de Monte-Cristo", 900, "Alexandre Dumas");
-    protected Product book4 = new Book(11,"Mort",20,"Sir Terence David John Pratchett");
+    protected Product book3 = new Book(56, "Le Comte de Monte-Cristo", 900, "Alexandre Dumas");
+    protected Product book4 = new Book(11, "Mort", 20, "Sir Terence David John Pratchett");
     protected Product book5 = new Book(175, "Приключения Алисы", 150_000, "Кир Булычёв");
     protected Product book6 = new Book(178, "Приключения Алисы", 250_000, "Кир Булычёв");
-    protected Product phone1 = new Smartphone(27, "Galaxy A03 Core",6_999, "Samsung");
-    protected Product phone2 = new Smartphone(9000, "A360",2_999, "DEXP");
-    protected Product phone3 = new Smartphone(101, "iPhone 14 Pro Max",166_999, "Apple");
-    protected Product phone4 = new Smartphone(8999, "Galaxy S23 Ultra",139_999, "Samsung");
-    protected Product phone5 = new Smartphone(555, "13 Pro",99_999, "Xiaomi ");
+    protected Product phone1 = new Smartphone(27, "Galaxy A03 Core", 6_999, "Samsung");
+    protected Product phone2 = new Smartphone(9000, "A360", 2_999, "DEXP");
+    protected Product phone3 = new Smartphone(101, "iPhone 14 Pro Max", 166_999, "Apple");
+    protected Product phone4 = new Smartphone(8999, "Galaxy S23 Ultra", 139_999, "Samsung");
+    protected Product phone5 = new Smartphone(555, "13 Pro", 99_999, "Xiaomi ");
 
     @BeforeEach
     public void setUp() {
@@ -41,13 +42,13 @@ public class ProductManagerTest {
     }
 
     @Test
-    public void getAuthor(){
+    public void getAuthor() {
 
     }
 
     @Test
-    public void shouldFindTwoBookByName(){
-        Product[] expected = new Product[]{book5,book6};
+    public void shouldFindTwoBookByName() {
+        Product[] expected = new Product[]{book5, book6};
         Product[] actual = repository.searchBy("Приключения Алисы");
         assertArrayEquals(expected, actual);
     }
